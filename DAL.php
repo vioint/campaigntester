@@ -15,7 +15,7 @@ class DAL
     private $settings_collection_name = 'settings';
 
 	private $dev_conn_str = "mongodb://localhost:27017";
-	private $prod_conn_str = "mongodb://t3st:t3st:ds023118.mlab.com:23118/t3st";
+	private $prod_conn_str = "mongodb://t3st:t3st@ds023118.mlab.com:23118/t3st";
 	private $conn_str = "";
 	
 	private $env = "production";
