@@ -18,11 +18,11 @@ class DAL
 	private $prod_conn_str = "mongodb://t3st:t3st:ds023118.mlab.com:23118/t3st";
 	private $conn_str = "";
 	
-	private $is_prod = TRUE;
+	private $env = 'production';
 	
     function __construct()
     {
-		if ($is_prod == TRUE) {
+		if ($env == 'production') {
 			error_log("Running on production config");
 			$conn_str = $prod_conn_str;
 		} else {
