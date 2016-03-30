@@ -26,6 +26,7 @@ class DAL
 			error_log("Running on production config");
 			$conn_str = $prod_conn_str;
 		} else {
+			error_log("Running on development config");
 			$conn_str = $dev_conn_str;
 		}
         $db_client = new MongoDB\Client($conn_str);
