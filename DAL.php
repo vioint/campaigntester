@@ -22,7 +22,7 @@ class DAL
 	
     function __construct()
     {
-		if ($is_prod) {
+		if ($is_prod == TRUE) {
 			error_log("Running on production config");
 			$conn_str = $prod_conn_str;
 		} else {
