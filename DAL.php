@@ -7,7 +7,7 @@ require 'vendor/autoload.php';
 class DAL
 {
     public $db_client = null;
-    private $is_debug = false;
+    private $is_debug = FALSE;
     private $current_db_name = 't3st';
     private $db = null;
     private $users_collection_name = 'users';
@@ -18,19 +18,19 @@ class DAL
 	private $prod_conn_str = "mongodb://t3st:t3st:ds023118.mlab.com:23118/t3st";
 	private $conn_str = "";
 	
-	private $env = 'production';
+	private $env = "production";
 	
     function __construct()
     {
-		if ($env == 'production') {
+		if ($this->env == "production") {
 			error_log("Running on production config");
-			$conn_str = $prod_conn_str;
+			$this->conn_str = $prod_conn_str;
 		} else {
 			error_log("Running on development config");
-			$conn_str = $dev_conn_str;
+			$this->conn_str = $dev_conn_str;
 		}
-        $db_client = new MongoDB\Client($conn_str);
-        $this->db = $db_client->selectDatabase($this->current_db_name);
+        $this->db_client = new MongoDB\Client($conn_str);
+        $this->db = $this->db_client->selectDatabase($this->current_db_name);
         if ($this->is_debug)
             var_dump($db_client);
 
