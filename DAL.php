@@ -8,15 +8,26 @@ class DAL
 {
     public $db_client = null;
     private $is_debug = false;
-    private $current_db_name = 'test';
+    private $current_db_name = 't3st';
     private $db = null;
     private $users_collection_name = 'users';
     private $campaigns_collection_name = 'campaigns';
     private $settings_collection_name = 'settings';
 
+	private $dev_conn_str = "mongodb://localhost:27017";
+	private $prod_conn_str = "mongodb://t3st:t3st:ds023118.mlab.com:23118/t3st";
+	private $conn_str = "";
+	
+	private $is_prod = TRUE;
+	
     function __construct()
     {
-        $db_client = new MongoDB\Client("mongodb://localhost:27017");
+		if ($is_prod) {
+			$conn_str = $prod_conn_str;
+		} else {
+			$conn_str = $dev_conn_str;
+		}
+        $db_client = new MongoDB\Client($conn_str);
         $this->db = $db_client->selectDatabase($this->current_db_name);
         if ($this->is_debug)
             var_dump($db_client);
