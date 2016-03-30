@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NoSqlConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="authenticationSettings">
+            <AuthenticationSettings>
+              <option name="extras">
+                <map>
+                  <entry key="authDatabase" value="admin" />
+                  <entry key="ssl" value="false" />
+                </map>
+              </option>
+            </AuthenticationSettings>
+          </option>
+          <option name="label" value="campaigntester@localhost" />
+          <option name="serverUrl" value="localhost:27017" />
+          <option name="shellArgumentsLine" value="--dbpath /Users/admin/data/mongodb/" />
+          <option name="userDatabase" value="campaigntester" />
+        </ServerConfiguration>
+      </list>
+    </option>
+    <option name="shellPathByDatabaseVendor">
+      <map>
+        <entry key="DatabaseVendor{name='MongoDB'}" value="/usr/local/bin/mongod" />
+      </map>
+    </option>
+  </component>
+</project>
