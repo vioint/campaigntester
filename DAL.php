@@ -29,10 +29,10 @@ class DAL
 			error_log("Running on development config");
 			$this->conn_str = $this->dev_conn_str;
 		}
-        $this->db_client = new MongoDB\Client($conn_str);
+        $this->db_client = new MongoDB\Client($this->conn_str);
         $this->db = $this->db_client->selectDatabase($this->current_db_name);
         if ($this->is_debug)
-            var_dump($db_client);
+            var_dump($this->db_client);
 
     }
 
