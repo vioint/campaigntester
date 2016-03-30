@@ -24,10 +24,10 @@ class DAL
     {
 		if ($this->env == "production") {
 			error_log("Running on production config");
-			$this->conn_str = $prod_conn_str;
+			$this->conn_str = $this->prod_conn_str;
 		} else {
 			error_log("Running on development config");
-			$this->conn_str = $dev_conn_str;
+			$this->conn_str = $this->dev_conn_str;
 		}
         $this->db_client = new MongoDB\Client($conn_str);
         $this->db = $this->db_client->selectDatabase($this->current_db_name);
