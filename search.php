@@ -4,6 +4,7 @@ require 'DAL.php';
 
 // get input either from POST or GET (GET only used for easy testing)
 $input_data = ($_GET) ? $_GET['json'] : file_get_contents('php://input');
+error_log("User data loaded to search : \n $input_data");
 if ($input_data) {
     $input_data = json_decode($input_data);
     // convert stdClass => array
