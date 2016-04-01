@@ -10,7 +10,7 @@ function post_json_request($request_url, $request_content)
     $options = array(
         'http' => array(
             'method'  => 'POST',
-            'content' => $request_content,
+            'content' => json_encode( $request_content ),
             'header'=>
                 "Content-Type: application/json\r\n" .
                 "Accept: application/json\r\n"
@@ -29,7 +29,7 @@ function perform_auto_search()
     $user_gen_url = baseURL() . 'user.php';
 
     $new_user_data = file_get_contents($user_gen_url);
-    $search_results = json_decode(post_json_request($search_url, $new_user_data));
+    $search_results = post_json_request($search_url, $new_user_data);
 
     return $search_results;
 }
