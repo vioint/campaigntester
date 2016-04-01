@@ -9,7 +9,7 @@ if ($input_data) {
     //$input_data = json_decode($input_data, true);
     // convert stdClass => array
     //$user_data = json_decode(json_encode($input_data), true);
-	$user_data = json_decode($input_data, true);
+	$user_data = json_decode($input_data);
 	error_log("User data loaded to search : \n $user_data");
 	$user_attrs = $user_data['profile'];
 	error_log("User attrs : " +  json_encode($user_attrs));
