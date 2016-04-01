@@ -11,7 +11,9 @@ if ($input_data) {
     //$user_data = json_decode(json_encode($input_data), true);
 	$user_data = json_decode($input_data, true);
 	error_log("User data loaded to search : \n $user_data");
+	$user_attrs = $user_data['profile'];
+	error_log("User attrs : " +  json_encode($user_data['profile']));
     $dal = new DAL();
-    $results = $dal->get_campaigns($user_data['profile']);
+    $results = $dal->get_campaigns($user_attrs);
     echo json_encode($results, JSON_PRETTY_PRINT);
 }
