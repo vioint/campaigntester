@@ -28,7 +28,7 @@ function perform_auto_search()
     $search_url = baseURL() . 'search.php';
     $user_gen_url = baseURL() . 'user.php';
 
-    $new_user_data = file_get_contents($user_gen_url);
+    $new_user_data = json_decode(file_get_contents($user_gen_url), true);
     $search_results = json_decode(post_json_request($search_url, $new_user_data));
 
     return $search_results;

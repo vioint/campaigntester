@@ -6,7 +6,7 @@ require 'DAL.php';
 $input_data = ($_GET) ? $_GET['json'] : file_get_contents('php://input');
 error_log("Input data loaded to search : \n $input_data");
 if ($input_data) {
-    $input_data = json_decode($input_data, true);
+    $input_data = json_decode($input_data);
     // convert stdClass => array
     $user_data = json_decode(json_encode($input_data), true);
 	error_log("User data loaded to search : \n $user_data");
