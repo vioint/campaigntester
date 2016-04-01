@@ -10,7 +10,7 @@ function post_json_request($request_url, $request_content)
     $options = array(
         'http' => array(
             'method'  => 'POST',
-            'content' => json_encode( $request_content ),
+            'content' => $request_content,
             'header'=>
                 "Content-Type: application/json\r\n" .
                 "Accept: application/json\r\n"
